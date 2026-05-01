@@ -1,1 +1,162 @@
 @import "tailwindcss";
+
+:root {
+  color-scheme: dark;
+  --color-ember: #ff6a00;
+  --color-ember-soft: #ffb347;
+  --color-glow: #ffa94d;
+  --color-void: #0f0f0f;
+  --color-warm: #f5f5f5;
+}
+
+
+
+body {
+  font-family: var(--font-body);
+  background-color: var(--color-void);
+  color: var(--color-warm);
+}
+
+h1,
+h2,
+h3,
+h4,
+h5 {
+  font-family: var(--font-heading);
+  letter-spacing: 0.02em;
+}
+
+body::before {
+  content: "";
+  position: fixed;
+  inset: 0;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='140' height='140' viewBox='0 0 140 140'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.8' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='140' height='140' filter='url(%23n)' opacity='0.12'/%3E%3C/svg%3E");
+  opacity: 0.08;
+  pointer-events: none;
+  mix-blend-mode: soft-light;
+  z-index: 30;
+}
+
+.bg-void {
+  background-color: var(--color-void);
+}
+
+.text-warm {
+  color: var(--color-warm);
+}
+
+.font-heading {
+  font-family: var(--font-heading);
+}
+
+.gradient-ember {
+  background: linear-gradient(
+    135deg,
+    var(--color-ember),
+    var(--color-ember-soft)
+  );
+}
+
+.glow-ember {
+  box-shadow: 0 0 30px rgba(255, 140, 64, 0.45);
+}
+
+.glass-panel {
+  background: rgba(15, 15, 15, 0.6);
+  border: 1px solid rgba(255, 186, 112, 0.2);
+  backdrop-filter: blur(14px);
+}
+
+.section-divider {
+  background: linear-gradient(
+    90deg,
+    transparent,
+    rgba(255, 140, 64, 0.35),
+    transparent
+  );
+}
+
+.cinematic-grid {
+  background-image:
+    radial-gradient(
+      circle at 20% 20%,
+      rgba(255, 153, 75, 0.14),
+      transparent 50%
+    ),
+    radial-gradient(
+      circle at 80% 30%,
+      rgba(255, 120, 40, 0.16),
+      transparent 55%
+    ),
+    radial-gradient(circle at 40% 80%, rgba(255, 180, 90, 0.1), transparent 60%);
+}
+
+.button-glow {
+  transition:
+    transform 0.2s ease,
+    box-shadow 0.2s ease;
+}
+
+.button-glow:hover {
+  transform: translateY(-2px) scale(1.02);
+  box-shadow: 0 0 28px rgba(255, 136, 64, 0.55);
+}
+
+.text-glow {
+  text-shadow: 0 0 24px rgba(255, 160, 90, 0.45);
+}
+
+.cursor-glow {
+  background: radial-gradient(
+    circle,
+    rgba(255, 160, 90, 0.35) 0%,
+    transparent 70%
+  );
+}
+
+.floating-field {
+  position: relative;
+}
+
+.floating-input {
+  width: 100%;
+  border-radius: 16px;
+  border: 1px solid rgba(255, 186, 112, 0.3);
+  background: rgba(0, 0, 0, 0.4);
+  padding: 1rem 1rem;
+  font-size: 0.875rem;
+  color: rgba(255, 240, 230, 0.95);
+  outline: none;
+  transition: border-color 0.2s ease;
+}
+
+.floating-input:focus {
+  border-color: rgba(255, 186, 112, 0.7);
+}
+
+.floating-label {
+  pointer-events: none;
+  position: absolute;
+  left: 0.75rem;
+  top: 1rem;
+  font-size: 0.65rem;
+  line-height: 1;
+  text-transform: uppercase;
+  letter-spacing: 0.3em;
+  color: rgba(255, 210, 160, 0.6);
+  padding: 0 0.25rem;
+  border-radius: 2px;
+  transition:
+    transform 0.2s ease,
+    top 0.2s ease,
+    color 0.2s ease,
+    background-color 0.2s ease;
+}
+
+.floating-input:focus + .floating-label,
+.floating-input:not(:placeholder-shown) + .floating-label {
+  top: -0.35rem;
+  transform: scale(0.9);
+  color: rgba(255, 210, 160, 0.9);
+  background-color: var(--color-void);
+}
