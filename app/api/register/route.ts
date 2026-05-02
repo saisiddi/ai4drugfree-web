@@ -5,6 +5,7 @@ export async function POST(request: Request) {
   const {
     name,
     email,
+    phone,
     className,
     semester,
     eventName,
@@ -13,7 +14,7 @@ export async function POST(request: Request) {
     teamMembers,
   } = body ?? {};
 
-  if (!name || !email || !className || !semester || !eventName) {
+  if (!name || !email || !phone || !className || !semester || !eventName) {
     return NextResponse.json({ error: "Missing fields" }, { status: 400 });
   }
 
@@ -30,6 +31,7 @@ export async function POST(request: Request) {
   const params = new URLSearchParams();
   params.append("name", name);
   params.append("email", email);
+  params.append("phone", phone);
   params.append("event", eventName);
   params.append("class", className);
   params.append("sem", semester);

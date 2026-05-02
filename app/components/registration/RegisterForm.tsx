@@ -7,6 +7,7 @@ import type { EventItem } from "../../data/events";
 type FormState = {
   name: string;
   email: string;
+  phone: string;
   className: string;
   semester: string;
   teamLead: string;
@@ -21,6 +22,7 @@ export default function RegisterForm({ event }: { event: EventItem }) {
   const [form, setForm] = useState<FormState>({
     name: "",
     email: "",
+    phone: "",
     className: "",
     semester: "",
     teamLead: "",
@@ -32,7 +34,7 @@ export default function RegisterForm({ event }: { event: EventItem }) {
     [event.teamSize],
   );
 
-  const stepOneValid = form.name.trim() && form.email.trim();
+  const stepOneValid = form.name.trim() && form.email.trim() && form.phone.trim();
   const stepTwoValid = form.className.trim() && form.semester.trim();
   const teamValid = !isTeamEvent || form.teamLead.trim();
 
@@ -111,12 +113,13 @@ export default function RegisterForm({ event }: { event: EventItem }) {
             {[
               { key: "name", label: "Full Name" },
               { key: "email", label: "Email Address" },
+              { key: "phone", label: "Phone Number" },
             ].map((field) => (
               <label key={field.key} className="floating-field text-sm">
                 <span className="sr-only">{field.label}</span>
                 <input
                   required
-                  type={field.key === "email" ? "email" : "text"}
+                  type={field.key === "email" ? "email" : field.key === "phone" ? "tel" : "text"}
                   value={form[field.key as keyof FormState]}
                   onChange={(eventChange) =>
                     setForm((prev) => ({
