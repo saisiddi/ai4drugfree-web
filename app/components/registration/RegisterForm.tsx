@@ -5,13 +5,18 @@ import { AnimatePresence, motion } from "framer-motion";
 import type { EventItem } from "../../data/events";
 
 type FormState = {
-  name: string;
-  email: string;
-  phone: string;
-  className: string;
+  teamName: string;
+  teamLeadName: string;
+  teamLeadWhatsapp: string;
+  teamLeadEmail: string;
+  teamSize: string;
+  college: string;
+  campusName: string;
+  schoolName: string;
+  degreeName: string;
+  specialization: string;
+  year: string;
   semester: string;
-  teamLead: string;
-  teamMembers: string;
 };
 
 export default function RegisterForm({ event }: { event: EventItem }) {
