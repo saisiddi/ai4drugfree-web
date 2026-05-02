@@ -33,7 +33,7 @@ export default function AboutSection() {
             </p>
             <div className="mt-8 h-px w-full section-divider" />
             <div className="mt-6 grid gap-4 text-sm text-orange-100/70">
-              <p>Event Date: May 8, 2026</p>
+              <p>Event Date: May 8 - 14, 2026</p>
               <p>Venue: S-Vyasa Deemed to be University (School of Engineering and Technology)</p>
               <p>Focus: AI-powered awareness, recovery, and advocacy</p>
             </div>

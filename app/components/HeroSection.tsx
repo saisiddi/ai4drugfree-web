@@ -103,7 +103,7 @@ export default function HeroSection() {
           {...fadeSlowUp(0.8)}
           className="font-heading mt-1 text-lg tracking-[0.35em] text-orange-200/50 sm:text-xl md:text-2xl"
         >
-          FREE NATION 2026
+          School of Engineering and Technology
         </motion.p>
 
         {/* Impact Phrases */}

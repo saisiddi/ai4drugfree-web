@@ -70,7 +70,7 @@ export default function HomePage() {
         <div className="text-sm md:text-base tracking-[0.2em] text-orange-200/80">
           <p className="font-semibold text-orange-100">8 - 14 May, 2026</p>
           <p className="mt-2 text-xs md:text-sm text-orange-200/60">
-            School of Engineering and Technology
+            S-Vyasa Deemed to be University (School of Engineering and Technology)
           </p>
         </div>
         <div className="mt-4 text-xs uppercase tracking-[0.3em] text-orange-200/40">
