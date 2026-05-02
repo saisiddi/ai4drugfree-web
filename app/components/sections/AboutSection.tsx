@@ -15,7 +15,7 @@ export default function AboutSection() {
               A techno-social uprising powered by empathy, AI, and action.
             </h2>
             <p className="mt-6 text-base text-orange-100/80 sm:text-lg">
-              AI4DRUGFREE – FREE NATION 2026 is a cinematic movement where
+              AI4DRUGFREE – DRUG FREE NATION 2026 is a cinematic movement where
               university innovators unite to fight drug abuse. Through
               intelligent awareness, immersive storytelling, and collective
               action, we build a future where recovery is possible and hope is

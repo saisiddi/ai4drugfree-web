@@ -15,7 +15,7 @@ const body = Manrope({
 });
 
 export const metadata: Metadata = {
-  title: "AI4DRUGFREE – FREE NATION 2026: THE MOVEMENT",
+  title: "AI4DRUGFREE – DRUG FREE NATION 2026: THE MOVEMENT",
   description:
     "A cinematic, immersive movement for a drug-free future powered by AI.",
 };
