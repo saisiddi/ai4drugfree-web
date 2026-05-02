@@ -1,5 +1,6 @@
 "use client";
 
+import { useEffect } from "react";
 import { AnimatePresence, motion } from "framer-motion";
 import Link from "next/link";
 import type { EventItem } from "../../data/events";
@@ -11,11 +12,22 @@ export default function EventModal({
   event: EventItem | null;
   onClose: () => void;
 }) {
+  useEffect(() => {
+    if (event) {
+      document.body.style.overflow = "hidden";
+    } else {
+      document.body.style.overflow = "unset";
+    }
+    return () => {
+      document.body.style.overflow = "unset";
+    };
+  }, [event]);
+
   return (
     <AnimatePresence>
       {event && (
         <motion.div
-          className="fixed inset-0 z-50 flex items-center justify-center bg-black/80 p-6"
+          className="fixed inset-0 z-50 flex items-center justify-center bg-black/80 p-6 overscroll-contain"
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
           exit={{ opacity: 0 }}
@@ -26,7 +38,7 @@ export default function EventModal({
             animate={{ y: 0, scale: 1 }}
             exit={{ y: 40, scale: 0.96 }}
             transition={{ duration: 0.3 }}
-            className="glass-panel relative max-h-[85vh] w-full max-w-3xl overflow-y-auto rounded-3xl p-8"
+            className="glass-panel relative max-h-[85vh] w-full max-w-3xl overflow-y-auto overscroll-contain rounded-3xl p-8"
             onClick={(eventClick) => eventClick.stopPropagation()}
           >
             <p className="text-xs uppercase tracking-[0.4em] text-orange-200/70">
