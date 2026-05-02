@@ -1,6 +1,7 @@
 "use client";
 
 import { AnimatePresence, motion } from "framer-motion";
+import Link from "next/link";
 import type { EventItem } from "../../data/events";
 
 export default function EventModal({
@@ -99,12 +100,12 @@ export default function EventModal({
             </div>
 
             <div className="mt-8 flex flex-wrap gap-3">
-              <a
+              <Link
                 href={`/register/${encodeURIComponent(event.id)}`}
-                className="gradient-ember rounded-full px-6 py-3 text-xs font-semibold text-black"
+                className="gradient-ember rounded-full px-6 py-3 text-xs font-semibold text-black hover:opacity-90"
               >
                 Register for this event
-              </a>
+              </Link>
               <button
                 onClick={onClose}
                 className="rounded-full border border-orange-200/40 px-6 py-3 text-xs uppercase tracking-[0.3em] text-orange-100/80"
