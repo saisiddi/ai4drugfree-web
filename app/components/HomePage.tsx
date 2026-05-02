@@ -14,15 +14,15 @@ export default function HomePage() {
   return (
     <div className="relative min-h-screen bg-[#0f0f0f]">
       <header className="absolute left-0 right-0 top-0 z-20">
-        <div className="mx-auto flex w-full max-w-7xl items-center justify-between px-6 py-4 md:py-6">
+        <div className="mx-auto flex w-full max-w-7xl items-center justify-between px-6 py-4 md:py-8">
           <div className="flex w-1/3 justify-start">
-            <img src="/logo/vyasa.png" alt="Vyasa Logo" className="h-10 md:h-16 w-auto object-contain" />
+            <img src="/logo/vyasa.png" alt="Vyasa Logo" className="h-8 md:h-12 w-auto object-contain opacity-90" />
           </div>
           <div className="flex w-1/3 justify-center">
-            <img src="/logo/main.png" alt="Main Logo" className="h-14 md:h-24 w-auto object-contain" />
+            <img src="/logo/main.png" alt="Main Logo" className="h-16 md:h-28 w-auto object-contain drop-shadow-2xl" />
           </div>
           <div className="flex w-1/3 justify-end">
-            <img src="/logo/cluster.png" alt="Cluster Logo" className="h-10 md:h-16 w-auto object-contain" />
+            <img src="/logo/cluster.png" alt="Cluster Logo" className="h-10 md:h-16 w-auto object-contain opacity-90" />
           </div>
         </div>
       </header>
