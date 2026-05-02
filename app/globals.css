@@ -110,14 +110,6 @@ body::before {
   text-shadow: 0 0 24px rgba(255, 160, 90, 0.45);
 }
 
-.cursor-glow {
-  background: radial-gradient(
-    circle,
-    rgba(255, 160, 90, 0.35) 0%,
-    transparent 70%
-  );
-}
-
 .floating-field {
   position: relative;
   display: flex;

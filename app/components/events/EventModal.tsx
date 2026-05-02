@@ -50,14 +50,40 @@ export default function EventModal({
               {event.title}
             </h3>
             <p className="mt-2 text-base text-orange-100/80">{event.tagline}</p>
-            <p className="mt-4 text-sm text-orange-100/70">
+            <p className="mt-4 text-sm leading-relaxed text-orange-100/70">
               {event.description}
             </p>
 
-            <div className="mt-6 grid gap-4 rounded-2xl border border-orange-200/20 bg-black/40 p-6 text-sm text-orange-100/70">
-              <p>Team Size: {event.teamSize}</p>
-              <p>Schedule: {event.schedule}</p>
-              <p>Venue: {event.venue}</p>
+            <div className="mt-6 grid gap-3 rounded-2xl border border-orange-200/20 bg-black/40 p-6 text-sm text-orange-100/70">
+              <div className="flex items-start justify-between gap-4 border-b border-orange-500/10 pb-2">
+                <span className="text-[0.65rem] uppercase tracking-[0.25em] text-orange-400/50">
+                  Team Size
+                </span>
+                <span className="text-right text-orange-100/85">
+                  {event.teamSize}
+                </span>
+              </div>
+              <div className="flex items-start justify-between gap-4 border-b border-orange-500/10 pb-2">
+                <span className="text-[0.65rem] uppercase tracking-[0.25em] text-orange-400/50">
+                  Schedule
+                </span>
+                <span className="text-right text-orange-100/85">
+                  {event.schedule}
+                </span>
+              </div>
+              <div className="flex items-start justify-between gap-4">
+                <span className="text-[0.65rem] uppercase tracking-[0.25em] text-orange-400/50">
+                  Event Coordinator
+                </span>
+                <div className="text-right">
+                  <span className="block text-orange-100/90">
+                    {event.eventCoordinator}
+                  </span>
+                  <span className="block text-xs text-orange-400/70">
+                    {event.contactDetails}
+                  </span>
+                </div>
+              </div>
             </div>
 
             <div className="mt-6 grid gap-6">
@@ -116,13 +142,13 @@ export default function EventModal({
             <div className="mt-8 flex flex-wrap gap-3">
               <Link
                 href={`/register/${encodeURIComponent(event.id)}`}
-                className="gradient-ember rounded-full px-6 py-3 text-xs font-semibold text-black hover:opacity-90"
+                className="gradient-ember rounded-full px-6 py-3 text-xs font-semibold text-black transition-opacity hover:opacity-90"
               >
                 Register for this event
               </Link>
               <button
                 onClick={onClose}
-                className="rounded-full border border-orange-200/40 px-6 py-3 text-xs uppercase tracking-[0.3em] text-orange-100/80"
+                className="rounded-full border border-orange-200/40 px-6 py-3 text-xs uppercase tracking-[0.3em] text-orange-100/80 transition-colors hover:border-orange-200/70 hover:bg-orange-950/30"
               >
                 Close
               </button>

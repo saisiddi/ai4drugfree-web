@@ -12,7 +12,7 @@ export default function EventTabs({ event }: { event: EventItem }) {
     Overview: [
       event.description,
       `Team Size: ${event.teamSize}`,
-      `Venue: ${event.venue}`,
+      `Coordinator: ${event.eventCoordinator} (${event.contactDetails})`,
       `Schedule: ${event.schedule}`,
     ],
     Rules: event.rules,

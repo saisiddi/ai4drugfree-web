@@ -3,7 +3,7 @@
 import { motion, useScroll, useTransform } from "framer-motion";
 import { useEffect, useRef, useState } from "react";
 import GlowButton from "./GlowButton";
-import HeroScene from "./HeroScene";
+import HeroSceneLazy from "./HeroSceneLazy";
 
 /* ── ANIMATION VARIANTS ──────────────────────────────── */
 const fadeSlowUp = (delay: number) => ({
@@ -40,7 +40,7 @@ export default function HeroSection() {
     <section ref={sectionRef} className="relative min-h-screen overflow-hidden">
       {/* ─── 3D BACKGROUND LAYER ─────────────────────── */}
       <motion.div className="absolute inset-0" style={{ y: bgParallax }}>
-        <HeroScene reduced={reduced} />
+        <HeroSceneLazy reduced={reduced} />
       </motion.div>
 
       {/* ─── CINEMATIC OVERLAYS ──────────────────────── */}
@@ -126,9 +126,8 @@ export default function HeroSection() {
           className="mx-auto mt-8 max-w-2xl text-sm leading-relaxed text-orange-100/60 sm:text-base md:text-lg"
         >
           Our mission is AI for a Drug-Free Future.
-          <br className="hidden sm:block" />{" "}
-          We are creating awareness so people can break free and reclaim their
-          lives.
+          <br className="hidden sm:block" /> We are creating awareness so people
+          can break free and reclaim their lives.
         </motion.p>
 
         {/* CTA Buttons */}

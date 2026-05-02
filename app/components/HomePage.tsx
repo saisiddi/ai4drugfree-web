@@ -1,5 +1,3 @@
-"use client";
-
 import HeroSection from "./HeroSection";
 import AboutSection from "./sections/AboutSection";
 import PillarsSection from "./sections/PillarsSection";
@@ -16,24 +14,36 @@ export default function HomePage() {
       <header className="absolute left-0 right-0 top-0 z-20">
         <div className="mx-auto flex w-full max-w-7xl items-center justify-between px-6 py-4 md:py-6">
           <div className="flex w-1/3 justify-start">
-            <img
+            <Image
               src="/logo/vyasa.png"
               alt="Vyasa Logo"
+              width={200}
+              height={64}
+              sizes="(max-width: 768px) 120px, 160px"
               className="h-10 md:h-16 w-auto object-contain"
+              priority
             />
           </div>
           <div className="flex w-1/3 justify-center">
-            <img
+            <Image
               src="/logo/main.png"
               alt="Main Logo"
+              width={260}
+              height={96}
+              sizes="(max-width: 768px) 140px, 220px"
               className="h-14 md:h-24 w-auto object-contain"
+              priority
             />
           </div>
           <div className="flex w-1/3 justify-end">
-            <img
+            <Image
               src="/logo/cluster.png"
               alt="Cluster Logo"
+              width={220}
+              height={80}
+              sizes="(max-width: 768px) 140px, 190px"
               className="h-14 md:h-20 w-auto object-contain scale-110 md:scale-125 origin-right"
+              priority
             />
           </div>
         </div>
@@ -49,19 +59,22 @@ export default function HomePage() {
         <CTASection />
       </main>
       <footer className="flex flex-col items-center justify-center gap-6 px-6 py-16 text-center bg-black/40 border-t border-orange-200/10">
-        <img
+        <Image
           src="/logo/main.png"
           alt="Main Logo"
+          width={240}
+          height={96}
+          sizes="(max-width: 768px) 160px, 220px"
           className="h-20 md:h-24 w-auto object-contain"
         />
         <div className="text-sm md:text-base tracking-[0.2em] text-orange-200/80">
-          <p className="font-semibold text-orange-100">MAY 8, 2026</p>
+          <p className="font-semibold text-orange-100">8 - 14 May, 2026</p>
           <p className="mt-2 text-xs md:text-sm text-orange-200/60">
-            S-VYASA Deemed to be University, Bengaluru
+            School of Engineering and Technology
           </p>
         </div>
         <div className="mt-4 text-xs uppercase tracking-[0.3em] text-orange-200/40">
-          FREE NATION 2026 · Powered by AI · Designed for impact
+          AI for Drug Free India 2026
         </div>
       </footer>
     </div>

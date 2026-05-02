@@ -1,12 +1,16 @@
 "use client";
 
 import { motion } from "framer-motion";
+import dynamic from "next/dynamic";
 import { useMemo, useState } from "react";
 import GlowButton from "../components/GlowButton";
 import EventCard from "../components/events/EventCard";
-import EventModal from "../components/events/EventModal";
-import HeroScene from "../components/HeroScene";
+import HeroSceneLazy from "../components/HeroSceneLazy";
 import { events } from "../data/events";
+
+const EventModal = dynamic(() => import("../components/events/EventModal"), {
+  ssr: false,
+});
 
 const filters = ["All", "Solo", "Team"] as const;
 
@@ -36,7 +40,7 @@ export default function RegisterPage() {
     <div className="relative min-h-screen overflow-hidden bg-[#0a0a0a]">
       {/* ─── CINEMATIC BACKGROUND ──────────────────────── */}
       <div className="fixed inset-0 z-0 opacity-40">
-        <HeroScene reduced={true} />
+        <HeroSceneLazy reduced={true} />
       </div>
       <div
         className="pointer-events-none fixed inset-0 z-[1]"
@@ -62,7 +66,8 @@ export default function RegisterPage() {
             <h1
               className="font-heading mt-4 text-5xl leading-tight tracking-wide text-glow sm:text-6xl"
               style={{
-                background: "linear-gradient(180deg, #f5f5f5 30%, #ff8c00 100%)",
+                background:
+                  "linear-gradient(180deg, #f5f5f5 30%, #ff8c00 100%)",
                 WebkitBackgroundClip: "text",
                 WebkitTextFillColor: "transparent",
               }}
@@ -82,7 +87,11 @@ export default function RegisterPage() {
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.8, delay: 0.2, ease: [0.25, 0.46, 0.45, 0.94] }}
+          transition={{
+            duration: 0.8,
+            delay: 0.2,
+            ease: [0.25, 0.46, 0.45, 0.94],
+          }}
           className="mt-12 flex flex-wrap items-center gap-4"
         >
           <div className="flex gap-2 rounded-full border border-orange-200/20 bg-black/40 p-1 backdrop-blur-md">

@@ -1,8 +1,14 @@
 "use client";
 
-import { motion } from "framer-motion";
+import dynamic from "next/dynamic";
 import SectionReveal from "../SectionReveal";
-import PosterCarousel from "../PosterCarousel";
+
+const PosterCarousel = dynamic(() => import("../PosterCarousel"), {
+  ssr: false,
+  loading: () => (
+    <div className="mx-auto h-[280px] w-full max-w-6xl rounded-3xl border border-orange-500/10 bg-black/30" />
+  ),
+});
 
 export default function PostersSection() {
   return (
@@ -17,7 +23,8 @@ export default function PostersSection() {
               Visual stories engineered to move hearts.
             </h3>
             <p className="mx-auto mt-4 max-w-2xl text-orange-100/70">
-              Swipe or click through the official AI4DRUGFREE campaign posters designed to spread awareness and ignite action.
+              Swipe or click through the official AI4DRUGFREE campaign posters
+              designed to spread awareness and ignite action.
             </p>
           </div>
         </SectionReveal>

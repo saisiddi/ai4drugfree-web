@@ -9,7 +9,6 @@ export async function POST(request: Request) {
     className,
     semester,
     eventName,
-    eventId,
     teamLead,
     teamMembers,
   } = body ?? {};

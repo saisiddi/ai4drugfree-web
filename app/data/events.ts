@@ -1,11 +1,12 @@
-export type EventItem = {
+﻿export type EventItem = {
   id: string;
   title: string;
   tagline: string;
   description: string;
   teamSize: string;
   schedule: string;
-  venue: string;
+  eventCoordinator: string;
+  contactDetails: string;
   rules: string[];
   structure: string[];
   judging: string[];
@@ -16,13 +17,14 @@ export type EventItem = {
 export const events: EventItem[] = [
   {
     id: "poster-presentation",
-    title: "Poster Presentation (AI Poster Showcase)",
+    title: "BrainCanvas - Research Poster",
     tagline: "Visualize AI-driven strategies for a drug-free nation.",
     description:
       "Showcase research-backed concepts that merge AI, public health, and behavioral change through compelling poster narratives.",
     teamSize: "1-3 members",
-    schedule: "May 8, 2026 · 10:00 AM - 12:00 PM",
-    venue: "S-Vyasa Deemed to be University (School of Engineering and Technology)",
+    schedule: "May 14, 2026 · 10:00 AM - 1:00 PM",
+    eventCoordinator: "Dhanushri G",
+    contactDetails: "+91 81055 06569",
     rules: [
       "Original work only; cite sources clearly.",
       "Poster size limit: A1 digital or print.",
@@ -39,13 +41,14 @@ export const events: EventItem[] = [
   },
   {
     id: "ai-chatbot",
-    title: "AI Chatbot",
+    title: "TalkBot Arena",
     tagline: "Build empathetic AI that supports recovery journeys.",
     description:
       "Design a chatbot prototype that guides users toward help, resources, and hope.",
     teamSize: "1-4 members",
-    schedule: "May 8, 2026 · 1:30 PM - 4:30 PM",
-    venue: "S-Vyasa Deemed to be University (School of Engineering and Technology)",
+    schedule: "May 11, 2026 · 12:00 PM - 6:00 PM",
+    eventCoordinator: "Ujwal Bhansali",
+    contactDetails: "+91 86183 56663",
     rules: [
       "Chatbot must include escalation paths.",
       "Safety and ethics checks mandatory.",
@@ -62,13 +65,14 @@ export const events: EventItem[] = [
   },
   {
     id: "escape-room",
-    title: "Escape Room & Treasure Hunt",
+    title: "The Hidden Code",
     tagline: "Decode a path to freedom using AI-driven clues.",
     description:
       "Teams solve immersive puzzles powered by AI hints, spotlighting prevention and recovery milestones.",
     teamSize: "3-6 members",
-    schedule: "May 8, 2026 · 10:30 AM - 1:00 PM",
-    venue: "S-Vyasa Deemed to be University (School of Engineering and Technology)",
+    schedule: "May 8, 2026 · 1:00 PM - 5:00 PM",
+    eventCoordinator: "V ChittiSurya",
+    contactDetails: "+91 88857 80009",
     rules: [
       "Teams must stay together for all rounds.",
       "No external devices besides provided tools.",
@@ -86,8 +90,9 @@ export const events: EventItem[] = [
     description:
       "Compete in real-time prompt challenges focused on awareness messaging and empathetic communication.",
     teamSize: "1-2 members",
-    schedule: "May 8, 2026 · 3:00 PM - 4:30 PM",
-    venue: "S-Vyasa Deemed to be University (School of Engineering and Technology)",
+    schedule: "May 11, 2026 · 1:00 PM - 4:00 PM",
+    eventCoordinator: "Mohammed Siddiq",
+    contactDetails: "+91 63635 06056",
     rules: [
       "Live rounds with time limits.",
       "Prompts must comply with safety guidelines.",
@@ -100,13 +105,14 @@ export const events: EventItem[] = [
   },
   {
     id: "ai-meme-warfare",
-    title: "AI Meme Warfare",
+    title: "Meme Up",
     tagline: "Stay High on Life, Not Drugs",
     description:
       "Create impactful and relatable AI-powered memes that spread awareness about drug-free living through humor and storytelling.",
     teamSize: "1-4 members",
-    schedule: "May 11, 2026 · 01:00 PM - 03:00 PM",
-    venue: "Seminar Hall, S-VYASA",
+    schedule: "May 11, 2026 · 11:00 AM - 4:00 PM",
+    eventCoordinator: "Bhushan VS",
+    contactDetails: "+91 79759 52556",
     rules: [
       "Memes must align with anti-drug awareness themes.",
       "Use AI tools (ChatGPT, Canva AI, etc.).",
@@ -138,13 +144,14 @@ export const events: EventItem[] = [
   },
   {
     id: "debate-battle",
-    title: "Debate Battle",
+    title: "AI on Trial",
     tagline: "Put AI on the stand to defend or challenge its impact.",
     description:
       "Teams debate AI's responsibility in preventing drug abuse, backed by evidence and narratives.",
     teamSize: "2-4 members",
-    schedule: "May 8, 2026 · 4:00 PM - 5:30 PM",
-    venue: "S-Vyasa Deemed to be University (School of Engineering and Technology)",
+    schedule: "May 13, 2026 · 1:00 PM - 5:00 PM",
+    eventCoordinator: "Pruthvi Raj & Aakarsh",
+    contactDetails: "+91 82960 41160 & +91 91138 68049",
     rules: [
       "Follow timed rebuttal rounds.",
       "Use citations and real cases.",
@@ -157,13 +164,14 @@ export const events: EventItem[] = [
   },
   {
     id: "ai-music-fusion",
-    title: "AI Music Fusion",
+    title: "BeatMind",
     tagline: "Compose a sonic narrative that sparks recovery and hope.",
     description:
       "Create a musical piece using AI tools blended with human performance to inspire a drug-free future.",
     teamSize: "1-4 members",
-    schedule: "May 8, 2026 · 12:30 PM - 2:00 PM",
-    venue: "S-Vyasa Deemed to be University (School of Engineering and Technology)",
+    schedule: "May 13, 2026 · 2:00 PM - 5:00 PM",
+    eventCoordinator: "Nishita T S",
+    contactDetails: "+91 63629 89976",
     rules: [
       "Track length: 2-4 minutes.",
       "AI-generated elements must be documented.",
@@ -180,13 +188,14 @@ export const events: EventItem[] = [
   },
   {
     id: "ai-short-film",
-    title: "AI Short Film",
+    title: "Think smart say no",
     tagline: "Direct a cinematic short that turns data into empathy.",
     description:
       "Produce a 3-5 minute short film using AI-enhanced workflows to narrate recovery, resilience, and social impact.",
     teamSize: "2-6 members",
-    schedule: "May 8, 2026 · 2:15 PM - 4:00 PM",
-    venue: "S-Vyasa Deemed to be University (School of Engineering and Technology)",
+    schedule: "May 14, 2026 · 10:00 AM - 1:00 PM",
+    eventCoordinator: "Aliya Sultana",
+    contactDetails: "+91 74833 49520",
     rules: [
       "Length cap: 5 minutes.",
       "No graphic content; focus on hope.",
@@ -203,13 +212,15 @@ export const events: EventItem[] = [
   },
   {
     id: "ai-hackathon",
-    title: "AI Hackathon",
+    title: "Hack4Change",
     tagline: "Prototype the future of recovery in a rapid sprint.",
     description:
       "Build AI solutions that prevent abuse, support recovery, and empower communities.",
     teamSize: "3-6 members",
-    schedule: "May 8, 2026 · 9:00 AM - 6:00 PM",
-    venue: "S-Vyasa Deemed to be University (School of Engineering and Technology)",
+    schedule:
+      "May 13, 2026 · 8:00 AM - 5:00 PM / May 14, 2026 · 9:00 AM - 12:00 PM",
+    eventCoordinator: "Vishwajeeth. Rao B",
+    contactDetails: "+91 8884543690",
     rules: [
       "Working prototype required.",
       "Focus on impact and feasibility.",
