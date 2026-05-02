@@ -39,10 +39,10 @@ export default function HomePage() {
             <Image
               src="/logo/cluster.png"
               alt="Cluster Logo"
-              width={220}
-              height={80}
-              sizes="(max-width: 768px) 140px, 190px"
-              className="h-14 md:h-20 w-auto object-contain scale-110 md:scale-125 origin-right"
+              width={280}
+              height={100}
+              sizes="(max-width: 768px) 180px, 240px"
+              className="h-16 md:h-24 w-auto object-contain scale-[1.3] md:scale-[1.6] origin-right"
               priority
             />
           </div>

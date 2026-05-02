@@ -3,17 +3,22 @@ import { NextResponse } from "next/server";
 export async function POST(request: Request) {
   const body = await request.json();
   const {
-    name,
-    email,
-    phone,
-    className,
+    teamName,
+    teamLeadName,
+    teamLeadWhatsapp,
+    teamLeadEmail,
+    teamSize,
+    college,
+    campusName,
+    schoolName,
+    degreeName,
+    specialization,
+    year,
     semester,
     eventName,
-    teamLead,
-    teamMembers,
   } = body ?? {};
 
-  if (!name || !email || !phone || !className || !semester || !eventName) {
+  if (!teamName || !teamLeadName || !teamLeadWhatsapp || !teamLeadEmail || !eventName) {
     return NextResponse.json({ error: "Missing fields" }, { status: 400 });
   }
 
@@ -28,14 +33,19 @@ export async function POST(request: Request) {
   }
 
   const params = new URLSearchParams();
-  params.append("name", name);
-  params.append("email", email);
-  params.append("phone", phone);
-  params.append("event", eventName);
-  params.append("class", className);
-  params.append("sem", semester);
-  if (teamLead) params.append("teamLead", teamLead);
-  if (teamMembers) params.append("teamMembers", teamMembers);
+  params.append("eventName", eventName);
+  params.append("teamName", teamName);
+  params.append("teamLeadName", teamLeadName);
+  params.append("teamLeadWhatsapp", teamLeadWhatsapp);
+  params.append("teamLeadEmail", teamLeadEmail);
+  params.append("teamSize", teamSize);
+  params.append("college", college);
+  params.append("campusName", campusName);
+  params.append("schoolName", schoolName);
+  params.append("degreeName", degreeName);
+  params.append("specialization", specialization);
+  params.append("year", year);
+  params.append("semester", semester);
 
   const response = await fetch(webhookUrl, {
     method: "POST",

@@ -20,27 +20,27 @@ export default function RegisterForm({ event }: { event: EventItem }) {
     "idle" | "submitting" | "success" | "error"
   >("idle");
   const [form, setForm] = useState<FormState>({
-    name: "",
-    email: "",
-    phone: "",
-    className: "",
+    teamName: "",
+    teamLeadName: "",
+    teamLeadWhatsapp: "",
+    teamLeadEmail: "",
+    teamSize: "",
+    college: "",
+    campusName: "",
+    schoolName: "",
+    degreeName: "",
+    specialization: "",
+    year: "",
     semester: "",
-    teamLead: "",
-    teamMembers: "",
   });
 
-  const isTeamEvent = useMemo(
-    () => !event.teamSize.toLowerCase().startsWith("1"),
-    [event.teamSize],
-  );
-
-  const stepOneValid = form.name.trim() && form.email.trim() && form.phone.trim();
-  const stepTwoValid = form.className.trim() && form.semester.trim();
-  const teamValid = !isTeamEvent || form.teamLead.trim();
+  const stepOneValid = form.teamName.trim() && form.teamLeadName.trim() && form.teamLeadWhatsapp.trim() && form.teamLeadEmail.trim() && form.teamSize.trim();
+  const stepTwoValid = form.college.trim() && form.campusName.trim() && form.schoolName.trim();
+  const stepThreeValid = form.degreeName.trim() && form.specialization.trim() && form.year.trim() && form.semester.trim();
 
   const submit = async (eventClick: React.FormEvent) => {
     eventClick.preventDefault();
-    if (!stepOneValid || !stepTwoValid || !teamValid) {
+    if (!stepOneValid || !stepTwoValid || !stepThreeValid) {
       return;
     }
     setStatus("submitting");
@@ -90,18 +90,14 @@ export default function RegisterForm({ event }: { event: EventItem }) {
 
         <div className="mt-8 flex gap-4 text-[0.65rem] uppercase tracking-[0.4em] font-semibold">
           <span className={`transition-colors duration-300 ${step === 1 ? "text-orange-400 drop-shadow-[0_0_8px_rgba(255,140,0,0.8)]" : "text-orange-400/30"}`}>
-            01 Identity
+            01 Team
           </span>
           <span className={`transition-colors duration-300 ${step === 2 ? "text-orange-400 drop-shadow-[0_0_8px_rgba(255,140,0,0.8)]" : "text-orange-400/30"}`}>
-            02 Academic
+            02 Campus
           </span>
-          {isTeamEvent && (
-            <span
-              className={`transition-colors duration-300 ${step === 3 ? "text-orange-400 drop-shadow-[0_0_8px_rgba(255,140,0,0.8)]" : "text-orange-400/30"}`}
-            >
-              03 Team
-            </span>
-          )}
+          <span className={`transition-colors duration-300 ${step === 3 ? "text-orange-400 drop-shadow-[0_0_8px_rgba(255,140,0,0.8)]" : "text-orange-400/30"}`}>
+            03 Academic
+          </span>
         </div>
 
         {step === 1 && (
@@ -111,15 +107,17 @@ export default function RegisterForm({ event }: { event: EventItem }) {
             className="mt-8 grid gap-6"
           >
             {[
-              { key: "name", label: "Full Name" },
-              { key: "email", label: "Email Address" },
-              { key: "phone", label: "Phone Number" },
+              { key: "teamName", label: "Team Name" },
+              { key: "teamLeadName", label: "Team Leader Name" },
+              { key: "teamLeadWhatsapp", label: "Team Leader WhatsApp" },
+              { key: "teamLeadEmail", label: "Team Leader Email ID" },
+              { key: "teamSize", label: "Team Size" },
             ].map((field) => (
               <label key={field.key} className="floating-field text-sm">
                 <span className="sr-only">{field.label}</span>
                 <input
                   required
-                  type={field.key === "email" ? "email" : field.key === "phone" ? "tel" : "text"}
+                  type={field.key === "teamLeadEmail" ? "email" : field.key === "teamLeadWhatsapp" ? "tel" : "text"}
                   value={form[field.key as keyof FormState]}
                   onChange={(eventChange) =>
                     setForm((prev) => ({
@@ -151,8 +149,9 @@ export default function RegisterForm({ event }: { event: EventItem }) {
             className="mt-8 grid gap-6"
           >
             {[
-              { key: "className", label: "Class / Major" },
-              { key: "semester", label: "Semester / Year" },
+              { key: "college", label: "Your College" },
+              { key: "campusName", label: "Your Campus Name" },
+              { key: "schoolName", label: "Your School Name" },
             ].map((field) => (
               <label key={field.key} className="floating-field text-sm">
                 <span className="sr-only">{field.label}</span>
@@ -182,66 +181,46 @@ export default function RegisterForm({ event }: { event: EventItem }) {
               </button>
               <button
                 type="button"
-                onClick={() => (isTeamEvent ? stepTwoValid && setStep(3) : null)}
+                onClick={() => stepTwoValid && setStep(3)}
                 className="gradient-ember flex-1 rounded-full px-6 py-3 text-xs font-bold uppercase tracking-[0.2em] text-black shadow-[0_0_20px_rgba(255,140,0,0.3)] transition-all hover:scale-[1.02] disabled:scale-100 disabled:opacity-50"
                 disabled={!stepTwoValid}
               >
-                {isTeamEvent ? "Continue" : "Review"}
+                Continue
               </button>
             </div>
-            {!isTeamEvent && (
-              <button
-                type="submit"
-                disabled={!stepTwoValid || status === "submitting"}
-                className="gradient-ember rounded-full py-3.5 text-xs font-bold uppercase tracking-[0.2em] text-black shadow-[0_0_20px_rgba(255,140,0,0.3)] transition-all hover:scale-[1.02] disabled:scale-100 disabled:opacity-50"
-              >
-                {status === "submitting" ? "Submitting..." : "Submit Registration"}
-              </button>
-            )}
           </motion.div>
         )}
 
-        {step === 3 && isTeamEvent && (
+        {step === 3 && (
           <motion.div
             initial={{ opacity: 0, x: 10 }}
             animate={{ opacity: 1, x: 0 }}
             className="mt-8 grid gap-6"
           >
-            <label className="floating-field text-sm">
-              <span className="sr-only">Team Lead Name</span>
-              <input
-                required
-                type="text"
-                value={form.teamLead}
-                onChange={(eventChange) =>
-                  setForm((prev) => ({
-                    ...prev,
-                    teamLead: eventChange.target.value,
-                  }))
-                }
-                className="floating-input"
-                placeholder=" "
-              />
-              <span className="floating-label">Team Lead Name</span>
-            </label>
-            <label className="floating-field text-sm">
-              <span className="sr-only">Team Members</span>
-              <input
-                type="text"
-                value={form.teamMembers}
-                onChange={(eventChange) =>
-                  setForm((prev) => ({
-                    ...prev,
-                    teamMembers: eventChange.target.value,
-                  }))
-                }
-                className="floating-input"
-                placeholder=" "
-              />
-              <span className="floating-label">
-                Team Members (comma separated)
-              </span>
-            </label>
+            {[
+              { key: "degreeName", label: "Degree Name" },
+              { key: "specialization", label: "Specialization" },
+              { key: "year", label: "Year" },
+              { key: "semester", label: "Semester" },
+            ].map((field) => (
+              <label key={field.key} className="floating-field text-sm">
+                <span className="sr-only">{field.label}</span>
+                <input
+                  required
+                  type="text"
+                  value={form[field.key as keyof FormState]}
+                  onChange={(eventChange) =>
+                    setForm((prev) => ({
+                      ...prev,
+                      [field.key]: eventChange.target.value,
+                    }))
+                  }
+                  className="floating-input"
+                  placeholder=" "
+                />
+                <span className="floating-label">{field.label}</span>
+              </label>
+            ))}
             <div className="mt-4 flex flex-wrap gap-4">
               <button
                 type="button"
@@ -252,10 +231,10 @@ export default function RegisterForm({ event }: { event: EventItem }) {
               </button>
               <button
                 type="submit"
-                disabled={!teamValid || status === "submitting"}
+                disabled={!stepThreeValid || status === "submitting"}
                 className="gradient-ember flex-1 rounded-full px-6 py-3 text-xs font-bold uppercase tracking-[0.2em] text-black shadow-[0_0_20px_rgba(255,140,0,0.3)] transition-all hover:scale-[1.02] disabled:scale-100 disabled:opacity-50"
               >
-                {status === "submitting" ? "Submitting..." : "Submit Registration"}
+                {status === "submitting" ? "Submitting..." : "Submit"}
               </button>
             </div>
           </motion.div>
