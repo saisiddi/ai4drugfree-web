@@ -22,7 +22,7 @@ export const events: EventItem[] = [
       "Showcase research-backed concepts that merge AI, public health, and behavioral change through compelling poster narratives.",
     teamSize: "1-3 members",
     schedule: "May 8, 2026 · 10:00 AM - 12:00 PM",
-    venue: "S-Vyasa Deemed to be University (School of Technology)",
+    venue: "S-Vyasa Deemed to be University (School of Engineering and Technology)",
     rules: [
       "Original work only; cite sources clearly.",
       "Poster size limit: A1 digital or print.",
@@ -45,7 +45,7 @@ export const events: EventItem[] = [
       "Design a chatbot prototype that guides users toward help, resources, and hope.",
     teamSize: "1-4 members",
     schedule: "May 8, 2026 · 1:30 PM - 4:30 PM",
-    venue: "S-Vyasa Deemed to be University (School of Technology)",
+    venue: "S-Vyasa Deemed to be University (School of Engineering and Technology)",
     rules: [
       "Chatbot must include escalation paths.",
       "Safety and ethics checks mandatory.",
@@ -68,7 +68,7 @@ export const events: EventItem[] = [
       "Teams solve immersive puzzles powered by AI hints, spotlighting prevention and recovery milestones.",
     teamSize: "3-6 members",
     schedule: "May 8, 2026 · 10:30 AM - 1:00 PM",
-    venue: "S-Vyasa Deemed to be University (School of Technology)",
+    venue: "S-Vyasa Deemed to be University (School of Engineering and Technology)",
     rules: [
       "Teams must stay together for all rounds.",
       "No external devices besides provided tools.",
@@ -87,7 +87,7 @@ export const events: EventItem[] = [
       "Compete in real-time prompt challenges focused on awareness messaging and empathetic communication.",
     teamSize: "1-2 members",
     schedule: "May 8, 2026 · 3:00 PM - 4:30 PM",
-    venue: "S-Vyasa Deemed to be University (School of Technology)",
+    venue: "S-Vyasa Deemed to be University (School of Engineering and Technology)",
     rules: [
       "Live rounds with time limits.",
       "Prompts must comply with safety guidelines.",
@@ -144,7 +144,7 @@ export const events: EventItem[] = [
       "Teams debate AI's responsibility in preventing drug abuse, backed by evidence and narratives.",
     teamSize: "2-4 members",
     schedule: "May 8, 2026 · 4:00 PM - 5:30 PM",
-    venue: "S-Vyasa Deemed to be University (School of Technology)",
+    venue: "S-Vyasa Deemed to be University (School of Engineering and Technology)",
     rules: [
       "Follow timed rebuttal rounds.",
       "Use citations and real cases.",
@@ -163,7 +163,7 @@ export const events: EventItem[] = [
       "Create a musical piece using AI tools blended with human performance to inspire a drug-free future.",
     teamSize: "1-4 members",
     schedule: "May 8, 2026 · 12:30 PM - 2:00 PM",
-    venue: "S-Vyasa Deemed to be University (School of Technology)",
+    venue: "S-Vyasa Deemed to be University (School of Engineering and Technology)",
     rules: [
       "Track length: 2-4 minutes.",
       "AI-generated elements must be documented.",
@@ -186,7 +186,7 @@ export const events: EventItem[] = [
       "Produce a 3-5 minute short film using AI-enhanced workflows to narrate recovery, resilience, and social impact.",
     teamSize: "2-6 members",
     schedule: "May 8, 2026 · 2:15 PM - 4:00 PM",
-    venue: "S-Vyasa Deemed to be University (School of Technology)",
+    venue: "S-Vyasa Deemed to be University (School of Engineering and Technology)",
     rules: [
       "Length cap: 5 minutes.",
       "No graphic content; focus on hope.",
@@ -209,7 +209,7 @@ export const events: EventItem[] = [
       "Build AI solutions that prevent abuse, support recovery, and empower communities.",
     teamSize: "3-6 members",
     schedule: "May 8, 2026 · 9:00 AM - 6:00 PM",
-    venue: "S-Vyasa Deemed to be University (School of Technology)",
+    venue: "S-Vyasa Deemed to be University (School of Engineering and Technology)",
     rules: [
       "Working prototype required.",
       "Focus on impact and feasibility.",

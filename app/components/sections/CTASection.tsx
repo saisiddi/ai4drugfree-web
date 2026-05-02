@@ -24,6 +24,42 @@ export default function CTASection() {
               Explore Movement
             </GlowButton>
           </div>
+
+          <div className="mt-16 pt-10 border-t border-orange-500/20">
+            <h4 className="text-2xl font-semibold text-glow mb-6">
+              Contact Us
+            </h4>
+            <div className="flex flex-col md:flex-row justify-center items-center gap-8 md:gap-16">
+              <div className="text-center font-body">
+                <p className="text-lg font-medium text-orange-100 uppercase tracking-wider mb-1">
+                  Skanda
+                </p>
+                <p className="text-sm text-orange-200/60 uppercase tracking-widest mb-2 font-semibold">
+                  Event Head
+                </p>
+                <a
+                  href="tel:+919902956084"
+                  className="text-xl text-warm hover:text-orange-400 transition-colors inline-block tracking-widest"
+                >
+                  +91 99029 56084
+                </a>
+              </div>
+              <div className="text-center font-body">
+                <p className="text-lg font-medium text-orange-100 uppercase tracking-wider mb-1">
+                  Tarun
+                </p>
+                <p className="text-sm text-orange-200/60 uppercase tracking-widest mb-2 font-semibold">
+                  Event Head
+                </p>
+                <a
+                  href="tel:+919972170225"
+                  className="text-xl text-warm hover:text-orange-400 transition-colors inline-block tracking-widest"
+                >
+                  +91 99721 70225
+                </a>
+              </div>
+            </div>
+          </div>
         </div>
       </SectionReveal>
     </section>
