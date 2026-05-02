@@ -6,19 +6,24 @@ import PillarsSection from "./sections/PillarsSection";
 import PostersSection from "./sections/PostersSection";
 import StorySection from "./sections/StorySection";
 import CTASection from "./sections/CTASection";
-import AudioToggle from "./AudioToggle";
 import EventOverviewSection from "./sections/EventOverviewSection";
 import EventsShowcaseSection from "./sections/EventsShowcaseSection";
+import Image from "next/image";
 
 export default function HomePage() {
   return (
     <div className="relative min-h-screen bg-[#0f0f0f]">
       <header className="absolute left-0 right-0 top-0 z-20">
-        <div className="mx-auto flex max-w-6xl items-center justify-between px-6 py-6">
-          <div className="text-xs uppercase tracking-[0.4em] text-orange-200/70">
-            AI4DRUGFREE
+        <div className="mx-auto flex w-full max-w-7xl items-center justify-between px-6 py-4 md:py-6">
+          <div className="flex w-1/3 justify-start">
+            <img src="/logo/vyasa.png" alt="Vyasa Logo" className="h-10 md:h-16 w-auto object-contain" />
           </div>
-          <AudioToggle />
+          <div className="flex w-1/3 justify-center">
+            <img src="/logo/main.png" alt="Main Logo" className="h-14 md:h-24 w-auto object-contain" />
+          </div>
+          <div className="flex w-1/3 justify-end">
+            <img src="/logo/cluster.png" alt="Cluster Logo" className="h-10 md:h-16 w-auto object-contain" />
+          </div>
         </div>
       </header>
       <HeroSection />
@@ -31,8 +36,15 @@ export default function HomePage() {
         <StorySection />
         <CTASection />
       </main>
-      <footer className="px-6 pb-10 text-center text-xs uppercase tracking-[0.3em] text-orange-200/60">
-        FREE NATION 2026 · Powered by AI · Designed for impact
+      <footer className="flex flex-col items-center justify-center gap-6 px-6 py-16 text-center bg-black/40 border-t border-orange-200/10">
+        <img src="/logo/main.png" alt="Main Logo" className="h-20 md:h-24 w-auto object-contain" />
+        <div className="text-sm md:text-base tracking-[0.2em] text-orange-200/80">
+          <p className="font-semibold text-orange-100">MAY 8, 2026</p>
+          <p className="mt-2 text-xs md:text-sm text-orange-200/60">S-VYASA Deemed to be University, Bengaluru</p>
+        </div>
+        <div className="mt-4 text-xs uppercase tracking-[0.3em] text-orange-200/40">
+          FREE NATION 2026 · Powered by AI · Designed for impact
+        </div>
       </footer>
     </div>
   );
