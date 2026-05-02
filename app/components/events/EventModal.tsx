@@ -32,6 +32,7 @@ export default function EventModal({
           animate={{ opacity: 1 }}
           exit={{ opacity: 0 }}
           onClick={onClose}
+          data-lenis-prevent
         >
           <motion.div
             initial={{ y: 40, scale: 0.96 }}
@@ -40,6 +41,7 @@ export default function EventModal({
             transition={{ duration: 0.3 }}
             className="glass-panel relative max-h-[85vh] w-full max-w-3xl overflow-y-auto overscroll-contain rounded-3xl p-8"
             onClick={(eventClick) => eventClick.stopPropagation()}
+            data-lenis-prevent
           >
             <p className="text-xs uppercase tracking-[0.4em] text-orange-200/70">
               Event Detail
