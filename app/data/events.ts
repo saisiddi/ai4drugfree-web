@@ -1,4 +1,4 @@
-﻿export type EventItem = {
+export type EventItem = {
   id: string;
   title: string;
   tagline: string;
@@ -90,7 +90,7 @@ export const events: EventItem[] = [
     description:
       "Compete in real-time prompt challenges focused on awareness messaging and empathetic communication.",
     teamSize: "1-2 members",
-    schedule: "May 11, 2026 · 1:00 PM - 4:00 PM",
+    schedule: "May 12, 2026 · 1:00 PM - 4:00 PM",
     eventCoordinator: "Mohammed Siddiq",
     contactDetails: "+91 63635 06056",
     rules: [
