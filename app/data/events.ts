@@ -192,7 +192,7 @@ export const events: EventItem[] = [
     tagline: "Direct a cinematic short that turns data into empathy.",
     description:
       "Produce a 3-5 minute short film using AI-enhanced workflows to narrate recovery, resilience, and social impact.",
-    teamSize: "2-6 members",
+    teamSize: "1-4 members",
     schedule: "May 14, 2026 · 10:00 AM - 1:00 PM",
     eventCoordinator: "Aliya Sultana",
     contactDetails: "+91 74833 49520",
