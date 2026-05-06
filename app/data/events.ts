@@ -21,7 +21,7 @@ export const events: EventItem[] = [
     tagline: "Visualize AI-driven strategies for a drug-free nation.",
     description:
       "Showcase research-backed concepts that merge AI, public health, and behavioral change through compelling poster narratives.",
-    teamSize: "1-3 members",
+    teamSize: "1-4 members",
     schedule: "May 14, 2026 · 10:00 AM - 1:00 PM",
     eventCoordinator: "Dhanushri G",
     contactDetails: "+91 81055 06569",
@@ -170,8 +170,8 @@ export const events: EventItem[] = [
       "Create a musical piece using AI tools blended with human performance to inspire a drug-free future.",
     teamSize: "1-4 members",
     schedule: "May 13, 2026 · 2:00 PM - 5:00 PM",
-    eventCoordinator: "Nishita T S",
-    contactDetails: "+91 63629 89976",
+    eventCoordinator: "Nishitha T.S",
+    contactDetails: "+91 99166 39473",
     rules: [
       "Track length: 2-4 minutes.",
       "AI-generated elements must be documented.",
