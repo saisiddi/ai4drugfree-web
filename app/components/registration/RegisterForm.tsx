@@ -74,6 +74,7 @@ export default function RegisterForm({ event }: { event: EventItem }) {
     form.specialization.trim() &&
     form.year.trim() &&
     form.semester.trim();
+  const formLocked = status === "submitting" || status === "success";
 
   const submit = async (eventClick: React.FormEvent) => {
     eventClick.preventDefault();
@@ -117,7 +118,10 @@ export default function RegisterForm({ event }: { event: EventItem }) {
         <h3 className="font-heading mt-4 text-3xl tracking-wide text-orange-50">
           {event.title}
         </h3>
-        <label className="floating-field mt-8 text-sm">
+        <p className="mt-4 text-sm text-orange-100/60">
+          Only the team leader should register. One submission per team per event.
+        </p>
+        <label className="floating-field mt-6 text-sm">
           <span className="sr-only">Event Name</span>
           <input
             readOnly
@@ -182,6 +186,7 @@ export default function RegisterForm({ event }: { event: EventItem }) {
                       ? "tel"
                       : "text"
                   }
+                  disabled={formLocked}
                   value={form[field.key as keyof FormState]}
                   onChange={(eventChange) =>
                     setForm((prev) => ({
@@ -199,7 +204,7 @@ export default function RegisterForm({ event }: { event: EventItem }) {
               type="button"
               onClick={() => stepOneValid && setStep(2)}
               className="gradient-ember mt-4 rounded-full py-3.5 text-xs font-bold uppercase tracking-[0.2em] text-black shadow-[0_0_20px_rgba(255,140,0,0.3)] transition-all hover:scale-[1.02] disabled:scale-100 disabled:opacity-50"
-              disabled={!stepOneValid}
+              disabled={!stepOneValid || formLocked}
             >
               Continue
             </button>
@@ -222,6 +227,7 @@ export default function RegisterForm({ event }: { event: EventItem }) {
                 <input
                   required
                   type="text"
+                  disabled={formLocked}
                   value={form[field.key as keyof FormState]}
                   onChange={(eventChange) =>
                     setForm((prev) => ({
@@ -240,6 +246,7 @@ export default function RegisterForm({ event }: { event: EventItem }) {
                 type="button"
                 onClick={() => setStep(1)}
                 className="rounded-full border border-orange-500/30 px-6 py-3 text-xs uppercase tracking-[0.3em] text-orange-100/80 transition-colors hover:border-orange-400/60 hover:bg-orange-950/30 hover:text-orange-50"
+                disabled={formLocked}
               >
                 Back
               </button>
@@ -247,7 +254,7 @@ export default function RegisterForm({ event }: { event: EventItem }) {
                 type="button"
                 onClick={() => stepTwoValid && setStep(3)}
                 className="gradient-ember flex-1 rounded-full px-6 py-3 text-xs font-bold uppercase tracking-[0.2em] text-black shadow-[0_0_20px_rgba(255,140,0,0.3)] transition-all hover:scale-[1.02] disabled:scale-100 disabled:opacity-50"
-                disabled={!stepTwoValid}
+                disabled={!stepTwoValid || formLocked}
               >
                 Continue
               </button>
@@ -272,6 +279,7 @@ export default function RegisterForm({ event }: { event: EventItem }) {
                 <input
                   required
                   type="text"
+                  disabled={formLocked}
                   value={form[field.key as keyof FormState]}
                   onChange={(eventChange) =>
                     setForm((prev) => ({
@@ -290,12 +298,13 @@ export default function RegisterForm({ event }: { event: EventItem }) {
                 type="button"
                 onClick={() => setStep(2)}
                 className="rounded-full border border-orange-500/30 px-6 py-3 text-xs uppercase tracking-[0.3em] text-orange-100/80 transition-colors hover:border-orange-400/60 hover:bg-orange-950/30 hover:text-orange-50"
+                disabled={formLocked}
               >
                 Back
               </button>
               <button
                 type="submit"
-                disabled={!stepThreeValid || status === "submitting"}
+                disabled={!stepThreeValid || formLocked}
                 className="gradient-ember flex-1 rounded-full px-6 py-3 text-xs font-bold uppercase tracking-[0.2em] text-black shadow-[0_0_20px_rgba(255,140,0,0.3)] transition-all hover:scale-[1.02] disabled:scale-100 disabled:opacity-50"
               >
                 {status === "submitting" ? "Submitting..." : "Submit"}
