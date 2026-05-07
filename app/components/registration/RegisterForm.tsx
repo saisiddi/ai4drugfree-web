@@ -59,12 +59,28 @@ export default function RegisterForm({ event }: { event: EventItem }) {
     semester: "",
   });
 
+  const maxTeamSize = useMemo(() => {
+    const numericMatches = event.teamSize.match(/\d+/g) || [];
+    const numbers = numericMatches
+      .map((value) => Number.parseInt(value, 10))
+      .filter((value) => Number.isFinite(value));
+    if (numbers.length === 0) {
+      return null;
+    }
+    return Math.max(...numbers);
+  }, [event.teamSize]);
+  const enteredTeamSize = Number.parseInt(form.teamSize, 10);
+  const teamSizeValid =
+    form.teamSize.trim() &&
+    Number.isFinite(enteredTeamSize) &&
+    enteredTeamSize > 0 &&
+    (maxTeamSize === null || enteredTeamSize <= maxTeamSize);
   const stepOneValid =
     form.teamName.trim() &&
     form.teamLeadName.trim() &&
     form.teamLeadWhatsapp.trim() &&
     form.teamLeadEmail.trim() &&
-    form.teamSize.trim();
+    teamSizeValid;
   const stepTwoValid =
     form.college.trim() &&
     form.campusName.trim() &&
@@ -184,8 +200,13 @@ export default function RegisterForm({ event }: { event: EventItem }) {
                       ? "email"
                       : field.key === "teamLeadWhatsapp"
                       ? "tel"
+                      : field.key === "teamSize"
+                      ? "number"
                       : "text"
                   }
+                  min={field.key === "teamSize" ? 1 : undefined}
+                  max={field.key === "teamSize" && maxTeamSize ? maxTeamSize : undefined}
+                  inputMode={field.key === "teamSize" ? "numeric" : undefined}
                   disabled={formLocked}
                   value={form[field.key as keyof FormState]}
                   onChange={(eventChange) =>
@@ -200,6 +221,11 @@ export default function RegisterForm({ event }: { event: EventItem }) {
                 <span className="floating-label">{field.label}</span>
               </label>
             ))}
+            {maxTeamSize !== null && !teamSizeValid && form.teamSize.trim() && (
+              <p className="text-xs text-red-400/80">
+                Team size exceeds the allowed limit of {maxTeamSize}.
+              </p>
+            )}
             <button
               type="button"
               onClick={() => stepOneValid && setStep(2)}
