@@ -149,7 +149,7 @@ export const events: EventItem[] = [
     description:
       "Teams debate AI's responsibility in preventing drug abuse, backed by evidence and narratives.",
     teamSize: "2-4 members",
-    schedule: "May 13, 2026 · 1:00 PM - 5:00 PM",
+    schedule: "May 12, 2026 · 1:00 PM - 5:00 PM",
     eventCoordinator: "Pruthvi Raj & Aakarsh",
     contactDetails: "+91 82960 41160 & +91 91138 68049",
     rules: [
@@ -217,8 +217,7 @@ export const events: EventItem[] = [
     description:
       "Build AI solutions that prevent abuse, support recovery, and empower communities.",
     teamSize: "3-6 members",
-    schedule:
-      "May 13, 2026 · 8:00 AM - 5:00 PM / May 14, 2026 · 9:00 AM - 12:00 PM",
+    schedule: "May 13, 2026 · 8:00 AM - 5:00 PM",
     eventCoordinator: "Vishwajeeth. Rao B",
     contactDetails: "+91 8884543690",
     rules: [
