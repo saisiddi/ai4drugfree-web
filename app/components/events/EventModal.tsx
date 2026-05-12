@@ -3,7 +3,7 @@
 import { useEffect } from "react";
 import { AnimatePresence, motion } from "framer-motion";
 import Link from "next/link";
-import type { EventItem } from "../../data/events";
+import { isRegistrationOpen, type EventItem } from "../../data/events";
 
 export default function EventModal({
   event,
@@ -140,12 +140,18 @@ export default function EventModal({
             </div>
 
             <div className="mt-8 flex flex-wrap gap-3">
-              <Link
-                href={`/register/${encodeURIComponent(event.id)}`}
-                className="gradient-ember rounded-full px-6 py-3 text-xs font-semibold text-black transition-opacity hover:opacity-90"
-              >
-                Register for this event
-              </Link>
+              {isRegistrationOpen(event) ? (
+                <Link
+                  href={`/register/${encodeURIComponent(event.id)}`}
+                  className="gradient-ember rounded-full px-6 py-3 text-xs font-semibold text-black transition-opacity hover:opacity-90"
+                >
+                  Register for this event
+                </Link>
+              ) : (
+                <span className="rounded-full border border-orange-200/40 px-6 py-3 text-xs uppercase tracking-[0.3em] text-orange-100/50">
+                  Registration Closed
+                </span>
+              )}
               <button
                 onClick={onClose}
                 className="rounded-full border border-orange-200/40 px-6 py-3 text-xs uppercase tracking-[0.3em] text-orange-100/80 transition-colors hover:border-orange-200/70 hover:bg-orange-950/30"

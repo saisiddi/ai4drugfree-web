@@ -1,6 +1,6 @@
 import Link from "next/link";
 import { redirect } from "next/navigation";
-import { getEventBySlug } from "../../data/events";
+import { getEventBySlug, isRegistrationOpen } from "../../data/events";
 import RegisterForm from "../../components/registration/RegisterForm";
 import HeroSceneLazy from "../../components/HeroSceneLazy";
 
@@ -14,6 +14,38 @@ export default async function RegisterEventPage({
 
   if (!event) {
     redirect("/register");
+  }
+
+  if (!isRegistrationOpen(event)) {
+    return (
+      <div className="relative min-h-screen overflow-hidden bg-[#0a0a0a]">
+        <div className="fixed inset-0 z-0 opacity-30">
+          <HeroSceneLazy reduced={true} />
+        </div>
+        <div
+          className="pointer-events-none fixed inset-0 z-[1]"
+          style={{
+            background:
+              "radial-gradient(ellipse 80% 80% at 50% 30%, transparent 0%, #0a0a0a 100%)",
+          }}
+        />
+        <div className="pointer-events-none fixed inset-0 z-[1] bg-black/60" />
+
+        <div className="relative z-10 mx-auto flex min-h-screen max-w-5xl items-center px-6 py-24 text-warm">
+          <div className="w-full rounded-3xl border border-orange-500/20 bg-black/40 p-10 text-center shadow-[0_0_30px_rgba(0,0,0,0.5)] backdrop-blur-md">
+            <p className="text-[0.65rem] uppercase tracking-[0.6em] text-orange-300/60">
+              Registration Closed
+            </p>
+            <h1 className="font-heading mt-4 text-4xl leading-tight tracking-wide text-orange-50 sm:text-5xl">
+              {event.title}
+            </h1>
+            <p className="mt-6 text-lg text-orange-100/70">
+              Registration for Hack4Change is now closed.
+            </p>
+          </div>
+        </div>
+      </div>
+    );
   }
 
   return (

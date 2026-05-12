@@ -2,7 +2,7 @@
 
 import { motion } from "framer-motion";
 import { memo } from "react";
-import type { EventItem } from "../../data/events";
+import { isRegistrationOpen, type EventItem } from "../../data/events";
 
 function EventCard({
   event,
@@ -72,12 +72,18 @@ function EventCard({
         >
           Details
         </button>
-        <a
-          href={registerHref}
-          className="gradient-ember rounded-full px-6 py-2.5 text-xs font-semibold uppercase tracking-[0.1em] text-black shadow-[0_0_15px_rgba(255,140,0,0.4)] transition-transform hover:scale-105"
-        >
-          Register
-        </a>
+        {isRegistrationOpen(event) ? (
+          <a
+            href={registerHref}
+            className="gradient-ember rounded-full px-6 py-2.5 text-xs font-semibold uppercase tracking-[0.1em] text-black shadow-[0_0_15px_rgba(255,140,0,0.4)] transition-transform hover:scale-105"
+          >
+            Register
+          </a>
+        ) : (
+          <span className="rounded-full border border-orange-500/20 px-6 py-2.5 text-xs font-semibold uppercase tracking-[0.1em] text-orange-100/40">
+            Registration Closed
+          </span>
+        )}
       </div>
     </motion.div>
   );

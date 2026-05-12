@@ -12,6 +12,7 @@ export type EventItem = {
   judging: string[];
   submissions: string[];
   notes: string[];
+  registrationOpen?: boolean;
 };
 
 export const events: EventItem[] = [
@@ -229,8 +230,23 @@ export const events: EventItem[] = [
     judging: ["Impact potential", "Technical execution", "Scalability"],
     submissions: ["Prototype link", "Pitch deck", "Team roster"],
     notes: ["Snacks and power strips provided."],
+    registrationOpen: false,
   },
 ];
+
+const openRegistrationTitles = new Set([
+  "BeatMind",
+  "Think smart say no",
+  "BrainCanvas - Research Poster",
+]);
+
+export const isRegistrationOpen = (event: EventItem) => {
+  if (event.registrationOpen !== undefined) {
+    return event.registrationOpen;
+  }
+
+  return openRegistrationTitles.has(event.title);
+};
 
 const normalizeSlug = (value: string) =>
   value
