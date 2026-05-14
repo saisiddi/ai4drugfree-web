@@ -1,6 +1,6 @@
 import Link from "next/link";
 import { notFound } from "next/navigation";
-import { getEventBySlug } from "../../data/events";
+import { getEventBySlug, isRegistrationOpen } from "../../data/events";
 import EventTabs from "../../components/events/EventTabs";
 
 export default async function EventDetailPage({
@@ -35,12 +35,18 @@ export default async function EventDetailPage({
             >
               All Events
             </Link>
-            <Link
-              href={`/register/${event.id}`}
-              className="gradient-ember rounded-full px-5 py-2 text-xs font-semibold text-black"
-            >
-              Register Now
-            </Link>
+            {isRegistrationOpen(event) ? (
+              <Link
+                href={`/register/${event.id}`}
+                className="gradient-ember rounded-full px-5 py-2 text-xs font-semibold text-black"
+              >
+                Register Now
+              </Link>
+            ) : (
+              <span className="rounded-full border border-orange-200/40 px-5 py-2 text-xs uppercase tracking-[0.3em] text-orange-100/50">
+                Registration Closed
+              </span>
+            )}
           </div>
         </div>
 

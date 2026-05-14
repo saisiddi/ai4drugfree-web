@@ -1,6 +1,14 @@
 import { NextResponse } from "next/server";
+import { REGISTRATION_OPEN } from "../../data/events";
 
 export async function POST(request: Request) {
+  if (!REGISTRATION_OPEN) {
+    return NextResponse.json(
+      { error: "Registration is closed" },
+      { status: 403 },
+    );
+  }
+
   const body = await request.json();
   const {
     teamName,

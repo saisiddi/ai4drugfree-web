@@ -234,6 +234,8 @@ export const events: EventItem[] = [
   },
 ];
 
+export const REGISTRATION_OPEN = false;
+
 const openRegistrationTitles = new Set([
   "BeatMind",
   "Think smart say no",
@@ -241,6 +243,10 @@ const openRegistrationTitles = new Set([
 ]);
 
 export const isRegistrationOpen = (event: EventItem) => {
+  if (!REGISTRATION_OPEN) {
+    return false;
+  }
+
   if (event.registrationOpen !== undefined) {
     return event.registrationOpen;
   }
